@@ -1,4 +1,4 @@
-class BudgetsController < ApplicationController
+class BudgetsController < OpenReadController
   before_action :set_budget, only: [:show, :update, :destroy]
 
   # GET /budgets
@@ -15,10 +15,10 @@ class BudgetsController < ApplicationController
 
   # POST /budgets
   def create
-    @budget = Budget.new(budget_params)
+    @budget = current_user.budgets.build(budget_params)
 
     if @budget.save
-      render json: @budget, status: :created, location: @budget
+      render json: @budget, status: :created
     else
       render json: @budget.errors, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class BudgetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_budget
-      @budget = Budget.find(params[:id])
+      @budget = current_user.budgets.find(budget_params)
     end
 
     # Only allow a trusted parameter "white list" through.
