@@ -1,5 +1,5 @@
 class BudgetsController < OpenReadController
-  before_action :set_budget, only: [:show, :update, :destroy]
+  before_action :set_budget, only: [:update, :destroy]
 
   # GET /budgets
   def index
@@ -10,7 +10,7 @@ class BudgetsController < OpenReadController
 
   # GET /budgets/1
   def show
-    render json: @budget
+  render json: Budget.find(params[:id])
   end
 
   # POST /budgets

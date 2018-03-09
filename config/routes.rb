@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   patch '/change-password' => 'users#changepw'
   post '/budgets' => 'budgets#create'
   get '/budgets' => 'budgets#index'
-  get '/budg/:id' => 'budget#show'
+  get '/budgets/:id' => 'budgets#show'
+  patch '/budgets/:id' => 'budgets#update'
 end

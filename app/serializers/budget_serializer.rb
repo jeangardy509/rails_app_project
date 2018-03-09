@@ -1,3 +1,3 @@
 class BudgetSerializer < ActiveModel::Serializer
-  attributes :id, :month, :store, :amount
+  attributes :id, :date, :store, :amount
 end
