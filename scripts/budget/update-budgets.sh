@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TOKEN="" DATE="" STORE="" AMOUNT= sh scripts/receipts/create-receipt.sh
-
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/budgets/${ID}"
 curl "${API}${URL_PATH}" \
